@@ -1,0 +1,15 @@
+.home-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 48px;
+  margin: 0;
+}
+
+.home-subtitle {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 600;
+}

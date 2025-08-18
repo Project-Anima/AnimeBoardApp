@@ -1,0 +1,72 @@
+/* ヘッダー全体 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* 左側リンク */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #4285f4;
+}
+
+/* 右側領域 */
+.right-area {
+  display: flex;
+  align-items: center;
+}
+
+/* 共通ボタン */
+.header button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4285f4;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ユーザーアイコン */
+.user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ユーザーメニュー */
+.user-menu {
+  position: relative;
+}
+
+/* ドロップダウン */
+.dropdown {
+  position: absolute;
+  right: 0;
+  margin-top: 5px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdown button {
+  width: 100%;
+  background: #4285f4;
+  margin: 5px;
+}

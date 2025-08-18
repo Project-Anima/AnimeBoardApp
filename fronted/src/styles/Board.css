@@ -1,0 +1,9 @@
+.board-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.board-title {
+  font-size: 32px;
+  margin: 0;
+}
