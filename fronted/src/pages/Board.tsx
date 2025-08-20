@@ -26,6 +26,23 @@ function Board() {
     return (
         <div className="board-container">
           <h1 className="board-title">掲示板ページ</h1>
+          <div className="board-content">
+            {/* 投稿フォーム */}
+            <div className="post-form-container">
+                <form className="post-form">
+                    <div className="post-input-row">
+                        <img src={user.photoURL || ""} alt="Your icon" className="post-user-icon" />
+                        <textarea value="" className="post-textarea" rows={3} maxLength={200} />
+                    </div>
+                    <div className="post-actions">
+                        <span className="char-count">
+
+                        </span>
+                        <button type="submit" className="post-button">投稿</button>
+                    </div>
+                </form>
+            </div>
+          </div>
         </div>
     );
 }
