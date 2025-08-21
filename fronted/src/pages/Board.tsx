@@ -1,12 +1,22 @@
-import React  from "react";
+import React, { useState }  from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import '../styles/Board.css'
 
+interface Post {
+    id: string;
+    content: string;
+    authorName: string;
+    authorPhoto: string;
+    createdAt: Date;
+}
+
 function Board() {
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
+    const [postContent, setPostContent] = useState("");
+    const [posts, setPosts] = useState<Post[]>([]);
 
     // 未ログインならHomeへ戻す
     React.useEffect(() => {
@@ -14,6 +24,22 @@ function Board() {
             navigate('/');
         }
     }, [user, loading, navigate]);
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (!postContent.trim() || !user) return; 
+
+        const newPost: Post = {
+            id: Date.now().toString(),
+            content: postContent.trim(),
+            authorName: user?.displayName || "匿名ユーザー",
+            authorPhoto: user?.photoURL || "",
+            createdAt: new Date()
+        };
+
+        setPosts([newPost, ...posts])
+        setPostContent("");
+    }
 
     if (loading) {
         return <p>読み込み中...</p>;
@@ -42,6 +68,12 @@ function Board() {
                     </div>
                 </form>
             </div>
+
+            {/* {投稿一覧} */}
+            <div className="posts-container">
+
+            </div>
+
           </div>
         </div>
     );
